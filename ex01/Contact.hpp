@@ -29,6 +29,7 @@ void Contact::print_contact() {
     std::cout << "Nickname: " << nickname << std::endl;
     std::cout << "Phone Number: " << phone_number << std::endl;
     std::cout << "Darkest Secret: " << darkest_secret << std::endl;
+	std::cout << std::endl;
 }
 
 std::string format_column(const std::string& str) {
@@ -51,6 +52,7 @@ void Contact::print_contact(size_t idx) {
 void	clear_stdin(std::istream& in)
 {
 	in.clear();
+	in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	clearerr(stdin);
 	std::cout << std::endl;
 }
@@ -86,6 +88,8 @@ bool Contact::is_valid_number(const std::string& number)
 }
 
 Contact&	Contact::set_contact() {
+	std::cout << std::endl;
+	std::cout << "Adding new contact...:" << std::endl;
 	name = get_input("NAME");
 	last_name = get_input("LAST NAME");
 	nickname = get_input("NICKNAME");
