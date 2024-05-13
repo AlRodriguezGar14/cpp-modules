@@ -12,13 +12,42 @@ private:
 	std::string	nickname;
 	std::string	phone_number;
 	std::string	darkest_secret;
-	std::string	get_input(const std::string& prompt);
+//	std::string	get_input(const std::string& prompt);
 	bool		is_valid_number(const std::string& number);
 public:
-	Contact();
+	Contact() {};
+	Contact&		set_contact();
+	void			print_contact_short(size_t idx);
+	void			print_contact();
+	std::string	get_name() const { return (name); };
+	std::string	get_last_name() const { return (last_name); };
 	~Contact() {};
 };
 
+void Contact::print_contact() {
+    std::cout << "Name: " << name << std::endl;
+    std::cout << "Last Name: " << last_name << std::endl;
+    std::cout << "Nickname: " << nickname << std::endl;
+    std::cout << "Phone Number: " << phone_number << std::endl;
+    std::cout << "Darkest Secret: " << darkest_secret << std::endl;
+}
+
+std::string format_column(const std::string& str) {
+
+    std::string formatted = str;
+
+    if (formatted.size() > 10) {
+        formatted = formatted.substr(0, 9) + ".";
+    }
+    formatted = std::string(10 - formatted.size(), ' ') + formatted;
+    return formatted;
+}
+
+
+void Contact::print_contact_short(size_t idx) {
+    std::string row = format_column(std::to_string(idx)) + "|" + format_column(name) + "|" + format_column(last_name) + "|" + format_column(nickname) + "|";
+    std::cout << row << std::endl;
+}
 
 void	clear_stdin(std::istream& in)
 {
@@ -27,7 +56,7 @@ void	clear_stdin(std::istream& in)
 	std::cout << std::endl;
 }
 
-std::string Contact::get_input(const std::string& prompt) {
+std::string get_input(const std::string& prompt) {
 	std::string input;
 	size_t 		idx;
 	while (42)
@@ -57,13 +86,14 @@ bool Contact::is_valid_number(const std::string& number)
 	return (true);
 }
 
-Contact::Contact() {
+Contact&	Contact::set_contact() {
 	name = get_input("NAME");
 	last_name = get_input("LAST NAME");
 	nickname = get_input("NICKNAME");
 	while (!is_valid_number(phone_number))
 		phone_number = get_input("PHONE NUMBER");
 	darkest_secret = get_input("DARKEST SECRET");
+	return (*this);
 }
 
 #endif

@@ -11,8 +11,13 @@
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 int	main()
 {
-	Contact user;
+//	Contact user;
+	PhoneBook pn;
+
+	pn.add();
+	pn.search();
 }
