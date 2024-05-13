@@ -41,6 +41,11 @@ void	PhoneBook::search()
 	size_t 		idx = 42;
 
 	print_contacts();
+	if (contact_list[0].get_name().empty())
+	{
+		std::cout << std::endl << "The PhoneBook is empty." << std::endl;
+		return ;
+	}
 	std::cout << "Select the index of the user info you want to display: ";
 	std::cin >> idx;
 	clear_stdin(std::cin);
@@ -50,4 +55,5 @@ void	PhoneBook::search()
 	}
 	contact_list[idx].print_contact();
 }
+
 #endif
