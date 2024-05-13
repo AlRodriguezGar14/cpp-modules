@@ -33,7 +33,7 @@ void	PhoneBook::print_contacts()
 {
 	for (size_t idx = 0; idx != 8; ++idx)
 		if (!contact_list[idx].get_name().empty())
-			contact_list[idx].print_contact_short(idx);
+			contact_list[idx].print_contact(idx);
 }
 
 void	PhoneBook::search()
@@ -44,9 +44,10 @@ void	PhoneBook::search()
 	std::cout << "Select the index of the user info you want to display: ";
 	std::cin >> idx;
 	clear_stdin(std::cin);
-	if (idx > 8)
+	if (idx > 8 || contact_list[idx].get_name().empty()) {
 		std::cout << "Invalid index. No info available" << std::endl;
+		return ;
+	}
 	contact_list[idx].print_contact();
-
 }
 #endif

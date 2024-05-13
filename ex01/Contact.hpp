@@ -12,12 +12,11 @@ private:
 	std::string	nickname;
 	std::string	phone_number;
 	std::string	darkest_secret;
-//	std::string	get_input(const std::string& prompt);
 	bool		is_valid_number(const std::string& number);
 public:
 	Contact() {};
 	Contact&		set_contact();
-	void			print_contact_short(size_t idx);
+	void			print_contact(size_t idx);
 	void			print_contact();
 	std::string	get_name() const { return (name); };
 	std::string	get_last_name() const { return (last_name); };
@@ -44,7 +43,7 @@ std::string format_column(const std::string& str) {
 }
 
 
-void Contact::print_contact_short(size_t idx) {
+void Contact::print_contact(size_t idx) {
     std::string row = format_column(std::to_string(idx)) + "|" + format_column(name) + "|" + format_column(last_name) + "|" + format_column(nickname) + "|";
     std::cout << row << std::endl;
 }
