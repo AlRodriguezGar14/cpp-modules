@@ -2,7 +2,7 @@
 #include "headers/Contact.hpp"
 
 void Contact::print_contact(size_t idx) {
-	std::string row = format_column(std::to_string(idx)) + "|" + format_column(name) + "|" + format_column(last_name) + "|" + format_column(nickname) + "|";
+	std::string row = format_column(to_str(idx)) + "|" + format_column(name) + "|" + format_column(last_name) + "|" + format_column(nickname) + "|";
 	std::cout << row << std::endl;
 }
 

@@ -1,5 +1,13 @@
 #include "headers/project_utils.hpp"
 
+std::string to_str(size_t nbr)
+{
+	std::stringstream ss;
+
+	ss << nbr;
+	return ss.str();
+}
+
 std::string format_column(const std::string& str) {
 
 	std::string formatted = str;
@@ -12,8 +20,10 @@ std::string format_column(const std::string& str) {
 }
 
 void	clear_stdin(std::istream& in) {
+	char c;
+
 	in.clear();
-	in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	while (in.get(c) && c != '\n');
 	clearerr(stdin);
 	std::cout << std::endl;
 }
