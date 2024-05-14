@@ -8,13 +8,7 @@
 #include "project_utils.hpp"
 
 class Contact {
-private:
-	std::string	name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string	phone_number;
-	std::string	darkest_secret;
-	bool		is_valid_number(const std::string& number);
+
 public:
 	Contact() {};
 	Contact&		set_contact();
@@ -23,6 +17,14 @@ public:
 	std::string	get_name() const { return (name); };
 	std::string	get_last_name() const { return (last_name); };
 	~Contact() {};
+
+private:
+	std::string	name;
+	std::string	last_name;
+	std::string	nickname;
+	std::string	phone_number;
+	std::string	darkest_secret;
+	bool		is_valid_number(const std::string& number);
 };
 
 #endif

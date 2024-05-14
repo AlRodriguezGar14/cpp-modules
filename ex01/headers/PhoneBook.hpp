@@ -10,14 +10,16 @@
 
 
 class PhoneBook {
-private:
-	Contact contact_list[9];
-	void 	print_contacts();
+
 public:
 	PhoneBook() {};
 	void	add();
 	void	search();
 	~PhoneBook() {};
+
+private:
+	Contact contact_list[9];
+	void 	print_contacts();
 };
 
 #endif
