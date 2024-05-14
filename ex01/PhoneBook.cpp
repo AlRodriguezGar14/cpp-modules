@@ -1,7 +1,7 @@
 #include "headers/PhoneBook.hpp"
 
 void	PhoneBook::add() {
-	for (size_t idx = 0; idx != 8; ++idx)
+	for (size_t idx = 0; idx != 7; ++idx)
 	{
 		if (contact_list[idx].get_name().empty())
 		{
@@ -9,14 +9,14 @@ void	PhoneBook::add() {
 			return ;
 		}
 	}
-	contact_list[8] = Contact().set_contact();
+	contact_list[7] = Contact().set_contact();
 }
 
 void	PhoneBook::print_contacts()
 {
 	for (size_t idx = 0; idx != 8; ++idx)
 		if (!contact_list[idx].get_name().empty())
-			contact_list[idx].print_contact(idx);
+			contact_list[idx].print_contact(idx + 1);
 }
 
 void	PhoneBook::search()
@@ -32,9 +32,9 @@ void	PhoneBook::search()
 	std::cout << "Select the index of the user info you want to display: ";
 	std::cin >> idx;
 	clear_stdin(std::cin);
-	if (idx > 8 || contact_list[idx].get_name().empty()) {
+	if (idx > 8 || idx < 1 || contact_list[idx - 1].get_name().empty()) {
 		std::cout << "Invalid index. No info available" << std::endl;
 		return ;
 	}
-	contact_list[idx].print_contact();
+	contact_list[idx - 1].print_contact();
 }

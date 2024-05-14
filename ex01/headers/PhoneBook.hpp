@@ -18,7 +18,7 @@ public:
 	~PhoneBook() {};
 
 private:
-	Contact contact_list[9];
+	Contact contact_list[8];
 	void 	print_contacts();
 };
 
