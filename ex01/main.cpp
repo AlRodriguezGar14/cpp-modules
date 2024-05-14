@@ -1,5 +1,5 @@
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
+#include "headers/project_utils.hpp"
+#include "headers/PhoneBook.hpp"
 
 bool	is_valid_prompt(std::string prompt)
 {
@@ -23,14 +23,16 @@ Command get_command(const std::string& prompt) {
 	return INVALID;
 }
 
-int	main()
+int	main(int argc, char **argv)
 {
 	PhoneBook	pn;
 	Command		cmd;
-
 	std::string prompt;
-	int running = 1;
+	int 		running = 1;
 
+	(void)argv;
+	if (argc != 1)
+		return (1);
 	while (running)
 	{
 		prompt = get_input("\nChoose one of these commands:\n> ADD, SEARCH, EXIT <\n");
