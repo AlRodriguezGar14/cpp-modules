@@ -9,7 +9,13 @@ void	PhoneBook::add() {
 			return ;
 		}
 	}
-	contact_list[7] = Contact().set_contact();
+	size_t  oldest_idx = 0;
+	for (size_t idx = 0; idx != 8; ++idx)
+	{
+		if (contact_list[idx].get_timestamp() < contact_list[oldest_idx].get_timestamp())
+			oldest_idx = idx;
+	}
+	contact_list[oldest_idx] = Contact().set_contact();
 }
 
 void	PhoneBook::print_contacts()

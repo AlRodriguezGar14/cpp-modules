@@ -26,6 +26,8 @@ Contact&	Contact::set_contact() {
 	while (!is_valid_number(phone_number))
 		phone_number = get_input("PHONE NUMBER");
 	darkest_secret = get_input("DARKEST SECRET");
+	creation_time = std::time(0);
+	std::cout << "Contact added successfully" << std::endl;
 	return (*this);
 }
 
