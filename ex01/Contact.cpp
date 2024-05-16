@@ -1,6 +1,25 @@
 #include "headers/project_utils.hpp"
 #include "headers/Contact.hpp"
 
+Contact::Contact() : creation_time(0) {}
+
+Contact::Contact(const Contact &contact) : creation_time(contact.creation_time) {
+	name = contact.name;
+	last_name = contact.last_name;
+	nickname = contact.nickname;
+	phone_number = contact.phone_number;
+	darkest_secret = contact.darkest_secret;
+}
+
+Contact & Contact::operator = (const Contact &contact) {
+	name = contact.name;
+	last_name = contact.last_name;
+	nickname = contact.nickname;
+	phone_number = contact.phone_number;
+	darkest_secret = contact.darkest_secret;
+	return (*this);
+}
+
 void Contact::print_contact(size_t idx) {
 	std::string row = format_column(to_str(idx)) + "|" + format_column(name) + "|" + format_column(last_name) + "|" + format_column(nickname) + "|";
 	std::cout << row << std::endl;

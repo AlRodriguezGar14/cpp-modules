@@ -1,5 +1,28 @@
 #include "headers/PhoneBook.hpp"
 
+PhoneBook::PhoneBook() {};
+
+PhoneBook::PhoneBook(const PhoneBook &phonebook) {
+	for (size_t idx = 0; idx != 8; ++idx)
+	{
+		if (!phonebook.contact_list[idx].get_name().empty())
+			contact_list[idx] = phonebook.contact_list[idx];
+		else
+			break ;
+	}
+}
+
+PhoneBook & PhoneBook::operator = (const PhoneBook &phonebook) {
+	for (size_t idx = 0; idx != 8; ++idx)
+	{
+		if (!phonebook.contact_list[idx].get_name().empty())
+			contact_list[idx] = phonebook.contact_list[idx];
+		else
+			break ;
+	}
+	return (*this);
+}
+
 void	PhoneBook::add() {
 	for (size_t idx = 0; idx != 7; ++idx)
 	{

@@ -11,7 +11,9 @@
 class Contact {
 
 public:
-	Contact() : creation_time(0) {};
+	Contact();
+	Contact(const Contact &contact);
+	Contact & operator = (const Contact &contact);
 	Contact&		set_contact();
 	void			print_contact(size_t idx);
 	void			print_contact();
@@ -28,5 +30,6 @@ private:
 	std::time_t	creation_time;
 	bool		is_valid_number(const std::string& number);
 };
+
 
 #endif

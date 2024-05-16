@@ -12,7 +12,9 @@
 class PhoneBook {
 
 public:
-	PhoneBook() {};
+	PhoneBook();
+	PhoneBook(const PhoneBook &phonebook);
+	PhoneBook & operator = (const PhoneBook &phonebook);
 	void	add();
 	void	search();
 	~PhoneBook() {};
