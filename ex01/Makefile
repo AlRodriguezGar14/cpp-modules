@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./headers
 
 SRC =	main.cpp \
-		project_utils.cpp \
+		Utils.cpp \
 		Contact.cpp \
 		PhoneBook.cpp
 

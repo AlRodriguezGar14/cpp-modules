@@ -1,4 +1,4 @@
-#include "headers/project_utils.hpp"
+#include "headers/Utils.hpp"
 #include "headers/PhoneBook.hpp"
 
 bool	is_valid_prompt(std::string prompt)
@@ -35,9 +35,9 @@ int	main(int argc, char **argv)
 		return (1);
 	while (running)
 	{
-		prompt = get_input("\nChoose one of these commands:\n> ADD, SEARCH, EXIT <\n");
+		prompt = Utils::get_input("\nChoose one of these commands:\n> ADD, SEARCH, EXIT <\n");
 		while (!is_valid_prompt(prompt))
-			prompt = get_input("\nChoose one of these commands:\n> ADD, SEARCH, EXIT <\n");
+			prompt = Utils::get_input("\nChoose one of these commands:\n> ADD, SEARCH, EXIT <\n");
 		cmd = get_command(prompt);
 		switch (cmd) {
 			case EXIT:

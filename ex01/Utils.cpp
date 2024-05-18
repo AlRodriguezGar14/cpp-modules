@@ -1,6 +1,11 @@
-#include "headers/project_utils.hpp"
+#include "headers/Utils.hpp"
 
-std::string to_str(size_t nbr)
+Utils::Utils() {}
+Utils::Utils(const Utils &utils) { (void)utils; }
+Utils & Utils::operator = (const Utils &utils) { (void)utils; return (*this); }
+Utils::~Utils() {}
+
+std::string Utils::to_str(size_t nbr)
 {
 	std::stringstream ss;
 
@@ -8,7 +13,7 @@ std::string to_str(size_t nbr)
 	return ss.str();
 }
 
-std::string format_column(const std::string& str) {
+std::string Utils::format_column(const std::string& str) {
 
 	std::string formatted = str;
 
@@ -19,7 +24,7 @@ std::string format_column(const std::string& str) {
 	return formatted;
 }
 
-void	clear_stdin(std::istream& in) {
+void	Utils::clear_stdin(std::istream& in) {
 	char c;
 
 	in.clear();
@@ -28,7 +33,7 @@ void	clear_stdin(std::istream& in) {
 	std::cout << std::endl;
 }
 
-std::string get_input(const std::string& prompt) {
+std::string Utils::get_input(const std::string& prompt) {
 	std::string input;
 	size_t 		idx;
 	while (42)

@@ -1,4 +1,4 @@
-#include "headers/project_utils.hpp"
+#include "headers/Utils.hpp"
 #include "headers/Contact.hpp"
 
 Contact::Contact() : creation_time(0) {}
@@ -20,8 +20,10 @@ Contact & Contact::operator = (const Contact &contact) {
 	return (*this);
 }
 
+Contact::~Contact() {}
+
 void Contact::print_contact(size_t idx) {
-	std::string row = format_column(to_str(idx)) + "|" + format_column(name) + "|" + format_column(last_name) + "|" + format_column(nickname) + "|";
+	std::string row = Utils::format_column(Utils::to_str(idx)) + "|" + Utils::format_column(name) + "|" + Utils::format_column(last_name) + "|" + Utils::format_column(nickname) + "|";
 	std::cout << row << std::endl;
 }
 
@@ -38,13 +40,13 @@ bool Contact::is_valid_number(const std::string& number)
 Contact&	Contact::set_contact() {
 	std::cout << std::endl;
 	std::cout << "Adding new contact...:" << std::endl;
-	name = get_input("NAME");
-	last_name = get_input("LAST NAME");
-	nickname = get_input("NICKNAME");
-	phone_number = get_input("PHONE NUMBER");
+	name = Utils::get_input("NAME");
+	last_name = Utils::get_input("LAST NAME");
+	nickname = Utils::get_input("NICKNAME");
+	phone_number = Utils::get_input("PHONE NUMBER");
 	while (!is_valid_number(phone_number))
-		phone_number = get_input("PHONE NUMBER");
-	darkest_secret = get_input("DARKEST SECRET");
+		phone_number = Utils::get_input("PHONE NUMBER");
+	darkest_secret = Utils::get_input("DARKEST SECRET");
 	creation_time = std::time(0);
 	std::cout << "Contact added successfully" << std::endl;
 	return (*this);

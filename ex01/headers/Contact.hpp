@@ -6,7 +6,7 @@
 #include <string>
 #include <ctime>
 
-#include "project_utils.hpp"
+#include "Utils.hpp"
 
 class Contact {
 
@@ -19,7 +19,7 @@ public:
 	void			print_contact();
 	std::time_t     get_timestamp() const { return (creation_time); };
 	std::string	get_name() const { return (name); };
-	~Contact() {};
+	~Contact();
 
 private:
 	std::string	name;

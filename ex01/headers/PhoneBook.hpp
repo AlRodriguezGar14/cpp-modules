@@ -1,7 +1,7 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include "project_utils.hpp"
+#include "Utils.hpp"
 #include "Contact.hpp"
 
 #include <iostream>
@@ -17,7 +17,7 @@ public:
 	PhoneBook & operator = (const PhoneBook &phonebook);
 	void	add();
 	void	search();
-	~PhoneBook() {};
+	~PhoneBook();
 
 private:
 	Contact contact_list[8];

@@ -23,6 +23,8 @@ PhoneBook & PhoneBook::operator = (const PhoneBook &phonebook) {
 	return (*this);
 }
 
+PhoneBook::~PhoneBook() {}
+
 void	PhoneBook::add() {
 	for (size_t idx = 0; idx != 7; ++idx)
 	{
@@ -60,7 +62,7 @@ void	PhoneBook::search()
 	}
 	std::cout << "Select the index of the user info you want to display: ";
 	std::cin >> idx;
-	clear_stdin(std::cin);
+	Utils::clear_stdin(std::cin);
 	if (idx > 8 || idx < 1 || contact_list[idx - 1].get_name().empty()) {
 		std::cout << "Invalid index. No info available" << std::endl;
 		return ;
