@@ -1,5 +1,5 @@
-#include "headers/Utils.hpp"
-#include "headers/PhoneBook.hpp"
+#include "Utils.hpp"
+#include "PhoneBook.hpp"
 
 bool	is_valid_prompt(std::string prompt)
 {

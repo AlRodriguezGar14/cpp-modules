@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./headers
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./
 
 SRC =	main.cpp \
 		Utils.cpp \

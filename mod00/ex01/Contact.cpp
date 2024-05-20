@@ -1,5 +1,5 @@
-#include "headers/Utils.hpp"
-#include "headers/Contact.hpp"
+#include "Utils.hpp"
+#include "Contact.hpp"
 
 Contact::Contact() : creation_time(0) {}
 
