@@ -43,9 +43,13 @@ int getIndex(std::string level) {
 void    Harl::complain(std::string level) {
 
 	void    (Harl::*complainLevel[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string labels[4] = { "[ DEBUG ]", "[ INFO ]", "[ WARNING ]", "[ ERROR ]" };
 	int i = getIndex(toLower(level));
 	if (i != -1)
+	{
+		std::cout << labels[i] << std::endl;
 		(this->*(complainLevel[i]))();
+	}
 	else
 		std::cout << "Invalid complain level" << std::endl;
 }
