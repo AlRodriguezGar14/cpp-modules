@@ -20,8 +20,8 @@ public:
 	~PhoneBook();
 
 private:
-	Contact contact_list[8];
-	void 	print_contacts();
+	Contact _contact_list[8];
+	void 	_print_contacts();
 };
 
 #endif

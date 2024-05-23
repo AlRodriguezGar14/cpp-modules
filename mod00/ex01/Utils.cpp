@@ -36,6 +36,7 @@ void	Utils::clear_stdin(std::istream& in) {
 std::string Utils::get_input(const std::string& prompt) {
 	std::string input;
 	size_t 		idx;
+
 	while (42)
 	{
 		std::cin.clear();

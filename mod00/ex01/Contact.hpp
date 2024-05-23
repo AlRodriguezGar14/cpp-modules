@@ -17,18 +17,18 @@ public:
 	Contact&		set_contact();
 	void			print_contact(size_t idx);
 	void			print_contact();
-	std::time_t     get_timestamp() const { return (creation_time); };
-	std::string	get_name() const { return (name); };
+	std::time_t     get_timestamp() const { return (_creation_time); };
+	std::string	get_name() const { return (_name); };
 	~Contact();
 
 private:
-	std::string	name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string	phone_number;
-	std::string	darkest_secret;
-	std::time_t	creation_time;
-	bool		is_valid_number(const std::string& number);
+	std::string	_name;
+	std::string	_last_name;
+	std::string	_nickname;
+	std::string	_phone_number;
+	std::string	_darkest_secret;
+	std::time_t	_creation_time;
+	bool		_is_valid_number(const std::string& number);
 };
 
 

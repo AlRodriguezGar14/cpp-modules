@@ -4,4 +4,7 @@
 *.o
 *.out
 *.gch
+cmake-build-debug/
+CMakeLists.txt
+*.swp
 
