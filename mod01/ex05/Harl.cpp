@@ -17,14 +17,14 @@ void    Harl::error(void) {
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-std::string toLower(std::string str) {
+std::string toLower(std::string t_str) {
 
 	std::string lower = "";
-	for (std::string::size_type i = 0; i != str.length(); i++) {
-		if (std::isupper(str[i]))
-			lower += std::tolower(str[i]);
+	for (std::string::size_type i = 0; i != t_str.length(); i++) {
+		if (std::isupper(t_str[i]))
+			lower += std::tolower(t_str[i]);
 		else
-			lower += str[i];
+			lower += t_str[i];
 	}
 	return lower;
 }
@@ -40,21 +40,21 @@ int getIndex(std::string level) {
 
 }
 
-void    Harl::complain(std::string level) {
+void    Harl::complain(std::string t_level) {
 
 	void    (Harl::*complainLevel[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string labels[4] = { "[ DEBUG ]", "[ INFO ]", "[ WARNING ]", "[ ERROR ]" };
-	int i = getIndex(toLower(level));
+	int i = getIndex(toLower(t_level));
 	if (i != -1)
 	{
 		std::cout << labels[i] << std::endl;
 		(this->*(complainLevel[i]))();
 	}
 	else
-		std::cout << "Invalid complain level" << std::endl;
+		std::cout << "Invalid complain t_level" << std::endl;
 }
 
 Harl::Harl() {};
-Harl::Harl(const Harl &h) { (void)h; };
+Harl::Harl(const Harl &t_h) { (void)t_h; };
 Harl& Harl::operator = (const Harl &h) { (void)h; return *this; };
 Harl::~Harl() {};

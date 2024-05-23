@@ -13,15 +13,15 @@ class PhoneBook {
 
 public:
 	PhoneBook();
-	PhoneBook(const PhoneBook &phonebook);
-	PhoneBook & operator = (const PhoneBook &phonebook);
+	PhoneBook(const PhoneBook &t_phonebook);
+	PhoneBook & operator = (const PhoneBook &t_phonebook);
 	void	add();
 	void	search();
 	~PhoneBook();
 
 private:
-	Contact _contact_list[8];
-	void 	_print_contacts();
+	Contact m_contact_list[8];
+	void 	m_print_contacts();
 };
 
 #endif

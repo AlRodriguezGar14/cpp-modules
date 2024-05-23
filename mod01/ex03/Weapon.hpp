@@ -6,15 +6,15 @@
 
 class Weapon {
 public:
-	Weapon(std::string type);
-	Weapon(const Weapon &w);
-	Weapon& operator = (const Weapon &w);
+	Weapon(std::string t_type);
+	Weapon(const Weapon &t_w);
+	Weapon& operator = (const Weapon &t_w);
 	~Weapon();
 
 	std::string getType();
-	void        setType(std::string type);
+	void        setType(std::string t_type);
 private:
-	std::string _type;
+	std::string m_type;
 };
 
 #endif

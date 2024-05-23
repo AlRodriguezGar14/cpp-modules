@@ -4,25 +4,25 @@ Zombie::Zombie() {
 	std::cout << "Zombie created" << std::endl;
 }
 
-Zombie::Zombie(const Zombie &z) {
-	*this = z;
+Zombie::Zombie(const Zombie &t_z) {
+	*this = t_z;
 	std::cout << "Zombie created" << std::endl;
 }
 
-Zombie& Zombie::operator = (const Zombie &z) {
-	this->_name = z._name;
+Zombie& Zombie::operator = (const Zombie &t_z) {
+	this->m_name = t_z.m_name;
 	return *this;
 }
 
 Zombie::~Zombie() {
-	std::cout << this->_name << ": Zombie destroyed" << std::endl;
+	std::cout << this->m_name << ": Zombie destroyed" << std::endl;
 }
 
 Zombie::Zombie(std::string name) {
-	this->_name = name;
+	this->m_name = name;
 	std::cout << name << ": Zombie created" << std::endl;
 }
 
 void Zombie::announce(void) {
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << this->m_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

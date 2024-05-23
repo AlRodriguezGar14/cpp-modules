@@ -1,22 +1,22 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string type) : _type(type) {};
-Weapon::Weapon(const Weapon &w) {
-	*this = w;
+Weapon::Weapon(std::string t_type) : m_type(t_type) {};
+Weapon::Weapon(const Weapon &t_w) {
+	*this = t_w;
 }
-Weapon& Weapon::operator = (const Weapon &w) {
-	this->_type = w._type;
+Weapon& Weapon::operator = (const Weapon &t_w) {
+	this->m_type = t_w.m_type;
 	return *this;
 }
 Weapon::~Weapon() {
-//	std::cout << "Weapon of type " << this->_type << " destroyed" << std::endl;
+//	std::cout << "Weapon of type " << this->m_type << " destroyed" << std::endl;
 }
 
 
 std::string Weapon::getType() {
-	return this->_type;
+	return this->m_type;
 }
 
-void    Weapon::setType(std::string type) {
-	this->_type = type;
+void    Weapon::setType(std::string t_type) {
+	this->m_type = t_type;
 }

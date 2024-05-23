@@ -1,18 +1,21 @@
+#ifndef HARL_HPP
+#define HARL_HPP
+
 #include <iostream>
 #include <string>
 
 class Harl {
 public:
 	Harl();
-	Harl(const Harl &h);
-	Harl& operator = (const Harl &h);
+	Harl(const Harl &t_h);
+	Harl& operator = (const Harl &t_h);
 	~Harl();
-	void    complain(int i);
+	void    complain(int t_idx);
 private:
-	void    debug(void);
-	void    info(void);
-	void    warning(void);
-	void    error(void);
+	void    debug();
+	void    info();
+	void    warning();
+	void    error();
 };
 
 enum ComplainLevel {
@@ -23,5 +26,7 @@ enum ComplainLevel {
 	NONE = 4
 };
 
-ComplainLevel getLevel(const std::string& arg);
-std::string toLower(std::string str);
+ComplainLevel getLevel(const std::string& t_arg);
+std::string toLower(std::string t_str);
+
+#endif

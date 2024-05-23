@@ -7,17 +7,17 @@
 class Zombie {
 public:
 	Zombie();
-	Zombie(const Zombie &z);
-	Zombie(std::string name);
-	Zombie& operator = (const Zombie &z);
+	Zombie(const Zombie &t_z);
+	Zombie(std::string t_name);
+	Zombie& operator = (const Zombie &t_z);
 	~Zombie();
-	void 	announce(void);
-	void	setName(std::string name);
+	void 	announce();
+	void	setName(std::string t_name);
 
 private:
-	std::string _name;
+	std::string m_name;
 };
 
-Zombie*	zombieHorde(int N, std::string name);
+Zombie*	zombieHorde(int t_n, std::string t_name);
 
 # endif

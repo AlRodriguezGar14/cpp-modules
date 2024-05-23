@@ -5,16 +5,16 @@
 
 class HumanB {
 public:
-	HumanB(std::string name);
-	HumanB(std::string name, Weapon* w);
-	HumanB(const HumanB &ha);
-	HumanB& operator = (const HumanB &ha);
+	HumanB(std::string t_name);
+	HumanB(std::string t_name, Weapon* t_w);
+	HumanB(const HumanB &t_ha);
+	HumanB& operator = (const HumanB &t_ha);
 	~HumanB();
 	void    attack();
-	void    setWeapon(Weapon* w);
+	void    setWeapon(Weapon* t_w);
 private:
-	Weapon*     _w;
-	std::string _name;
+	Weapon*     m_w;
+	std::string m_name;
 };
 
 #endif

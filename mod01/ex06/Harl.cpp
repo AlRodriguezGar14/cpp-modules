@@ -41,12 +41,12 @@ int getIndex(std::string level) {
 
 }
 
-void    Harl::complain(int iter) {
+void    Harl::complain(int t_idx) {
 
 	void    (Harl::*complainLevel[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string labels[4] = { "[ DEBUG ]", "[ INFO ]", "[ WARNING ]", "[ ERROR ]" };
 
-	for (int i = iter; i != 4; i++)
+	for (int i = t_idx; i != 4; i++)
 	{
 		std::cout << labels[i] << std::endl;
 		(this->*(complainLevel[i]))();
@@ -54,14 +54,14 @@ void    Harl::complain(int iter) {
 	}
 }
 
-ComplainLevel getLevel(const std::string& arg) {
-	if (std::strcmp(arg.c_str(), "debug") == 0)
+ComplainLevel getLevel(const std::string& t_arg) {
+	if (std::strcmp(t_arg.c_str(), "debug") == 0)
 		return DEBUG;
-	else if (std::strcmp(arg.c_str(), "info") == 0)
+	else if (std::strcmp(t_arg.c_str(), "info") == 0)
 		return INFO;
-	else if (std::strcmp(arg.c_str(), "warning") == 0)
+	else if (std::strcmp(t_arg.c_str(), "warning") == 0)
 		return WARNING;
-	else if (std::strcmp(arg.c_str(), "error") == 0)
+	else if (std::strcmp(t_arg.c_str(), "error") == 0)
 		return ERROR;
 	else
 		return NONE;
@@ -70,5 +70,5 @@ ComplainLevel getLevel(const std::string& arg) {
 
 Harl::Harl() {};
 Harl::Harl(const Harl &h) { (void)h; };
-Harl& Harl::operator = (const Harl &h) { (void)h; return *this; };
+Harl& Harl::operator = (const Harl &t_h) { (void)t_h; return *this; };
 Harl::~Harl() {};

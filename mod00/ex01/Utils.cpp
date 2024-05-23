@@ -1,21 +1,21 @@
 #include "Utils.hpp"
 
 Utils::Utils() {}
-Utils::Utils(const Utils &utils) { (void)utils; }
-Utils & Utils::operator = (const Utils &utils) { (void)utils; return (*this); }
+Utils::Utils(const Utils &t_utils) { (void)t_utils; }
+Utils & Utils::operator = (const Utils &t_utils) { (void)t_utils; return (*this); }
 Utils::~Utils() {}
 
-std::string Utils::to_str(size_t nbr)
+std::string Utils::to_str(size_t t_nbr)
 {
 	std::stringstream ss;
 
-	ss << nbr;
+	ss << t_nbr;
 	return ss.str();
 }
 
-std::string Utils::format_column(const std::string& str) {
+std::string Utils::format_column(const std::string& t_str) {
 
-	std::string formatted = str;
+	std::string formatted = t_str;
 
 	if (formatted.size() > 10) {
 		formatted = formatted.substr(0, 9) + ".";
@@ -24,11 +24,11 @@ std::string Utils::format_column(const std::string& str) {
 	return formatted;
 }
 
-void	Utils::clear_stdin(std::istream& in) {
+void	Utils::clear_stdin(std::istream& t_in) {
 	char c;
 
-	in.clear();
-	while (in.get(c) && c != '\n');
+	t_in.clear();
+	while (t_in.get(c) && c != '\n');
 	clearerr(stdin);
 	std::cout << std::endl;
 }

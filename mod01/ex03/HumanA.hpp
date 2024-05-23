@@ -5,14 +5,14 @@
 
 class HumanA {
 public:
-	HumanA(std::string name, Weapon& w);
-	HumanA(const HumanA &ha);
-	HumanA& operator = (const HumanA &ha);
+	HumanA(std::string t_name, Weapon& t_w);
+	HumanA(const HumanA &t_ha);
+	HumanA& operator = (const HumanA &t_ha);
 	~HumanA();
 	void    attack();
 private:
-	Weapon&      _w;
-	std::string _name;
+	Weapon&     m_w;
+	std::string m_name;
 };
 
 #endif
