@@ -53,7 +53,6 @@ int Fixed::toInt() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& t_Fixed) {
-//	std::cout << "The fixed point number is: " << t_Fixed.m_fixedPointValue << std::endl;
 	os << t_Fixed.toFloat();
 	return os;
 }

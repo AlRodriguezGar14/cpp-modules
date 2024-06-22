@@ -16,13 +16,14 @@ public:
     Fixed& operator = (const Fixed &t_Fixed);
 	float toFloat(void) const;
 	int toInt(void) const;
-	friend std::ostream& operator<<(std::ostream& os, const Fixed& t_Fixed);
 
 private:
 	int									m_fixedPointValue;
 	static const int m_fractionalBits = FRACTIONAL_BITS;
 
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& t_Fixed);
 
 #endif
 
