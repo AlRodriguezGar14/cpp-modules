@@ -1,4 +1,4 @@
-#include "FixedPoint.hpp"
+#include "Fixed.hpp"
 
 Fixed::Fixed() {
 	m_fixedPointValue = 0;

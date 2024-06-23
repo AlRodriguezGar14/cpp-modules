@@ -1,5 +1,5 @@
-#ifndef FIXEDPOINT_HPP
-#define FIXEDPOINT_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 #define FRACTIONAL_BITS 8

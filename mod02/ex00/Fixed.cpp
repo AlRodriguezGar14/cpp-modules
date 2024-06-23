@@ -1,4 +1,4 @@
-#include "FixedPoint.hpp"
+#include "Fixed.hpp"
 
 FixedPoint::FixedPoint() {
 	std::cout << "Default constructor called" << std::endl;
