@@ -53,6 +53,7 @@ void ScavTrap::guardGate() {
 			<< m_name
 			<< " is out, can't guard anything"
 			<< std::endl;
+		return ;
 	}
 	std::cout
 		<< "ScavTrap "
