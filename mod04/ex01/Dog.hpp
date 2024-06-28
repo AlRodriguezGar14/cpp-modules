@@ -11,10 +11,10 @@ public:
 	~Dog ();
 	Dog& operator = (const Dog &t_Dog);
 	void makeSound() const;
-	void setBrainIdea(const std::string &idea, int index);
-	std::string getBrainIdea(int index) const;
+	void setBrainIdea(const std::string &t_idea, int t_index);
+	std::string getBrainIdea(int t_index) const;
 private:
-	Brain *brain;
+	Brain *m_brain;
 };
 
 

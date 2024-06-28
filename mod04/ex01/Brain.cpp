@@ -25,13 +25,13 @@ Brain& Brain::operator=(const Brain& t_Brain) {
 	return *this;
 }
 
-void Brain::setIdea(const std::string &idea, int index) {
-	if (index >= 0 && index < 100)
-		m_ideas[index] = idea;
+void Brain::setIdea(const std::string &t_idea, int t_index) {
+	if (t_index >= 0 && t_index < 100)
+		m_ideas[t_index] = t_idea;
 }
 
-std::string Brain::getIdea(int index) const {
-	if (index >= 0 && index < 100)
-		return m_ideas[index];
+std::string Brain::getIdea(int t_index) const {
+	if (t_index >= 0 && t_index < 100)
+		return m_ideas[t_index];
 	return "Invalid index";
 }
