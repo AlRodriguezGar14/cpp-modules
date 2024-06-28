@@ -14,8 +14,8 @@ public:
     Animal& operator = (const Animal &t_Animal);
 	std::string getType() const;
 	virtual void makeSound() const;
-	virtual void setBrainIdea(const std::string &t_idea, int t_index);
-	virtual std::string getBrainIdea(int t_index) const;
+	virtual void setBrainIdea(const std::string &t_idea, int t_index) = 0;
+	virtual std::string getBrainIdea(int t_index) const = 0;
 
 protected:
     	std::string m_type;

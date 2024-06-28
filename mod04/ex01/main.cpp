@@ -30,9 +30,8 @@ int main() {
 	std::cout << animals[9]->getType() << std::endl;
 	std::cout << DEFAULT << std::endl;
 	for (int i = 0; i < 10; ++i) {
-		std::cout << MAGENTA << i << std::endl;
+		std::cout << MAGENTA << i << DEFAULT << std::endl;
 		animals[i]->makeSound();
-		std::cout << DEFAULT << std::endl;
 		delete animals[i];
 	}
 }

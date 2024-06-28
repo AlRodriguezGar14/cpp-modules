@@ -32,13 +32,3 @@ void Animal::makeSound() const {
 		<< " **starts growling**"
 		<< std::endl;
 }
-
-void Animal::setBrainIdea(const std::string &t_idea, int t_index) {
-	(void)t_idea;
-	(void)t_index;
-};
-
-std::string Animal::getBrainIdea(int t_index) const {
-	(void)t_index;
-	return "I have no brain, I am ethereal";
-};
