@@ -1,8 +1,8 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie() {
-	std::cout << "Zombie created" << std::endl;
-}
+// Zombie::Zombie() {
+// 	std::cout << "Zombie created" << std::endl;
+// }
 
 Zombie::Zombie(const Zombie &t_z) {
 	*this = t_z;
@@ -18,9 +18,9 @@ Zombie::~Zombie() {
 	std::cout << this->m_name << ": Zombie destroyed" << std::endl;
 }
 
-Zombie::Zombie(std::string name) {
-	this->m_name = name;
-	std::cout << name << ": Zombie created" << std::endl;
+Zombie::Zombie(std::string t_name) {
+	this->m_name = t_name;
+	std::cout << m_name << ": Zombie created" << std::endl;
 }
 
 void Zombie::announce(void) {

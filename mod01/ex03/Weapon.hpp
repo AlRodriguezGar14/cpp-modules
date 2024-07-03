@@ -11,7 +11,7 @@ public:
 	Weapon& operator = (const Weapon &t_w);
 	~Weapon();
 
-	std::string getType();
+	const std::string& getType() const;
 	void        setType(std::string t_type);
 private:
 	std::string m_type;

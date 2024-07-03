@@ -6,7 +6,6 @@
 class HumanB {
 public:
 	HumanB(std::string t_name);
-	HumanB(std::string t_name, Weapon* t_w);
 	HumanB(const HumanB &t_ha);
 	HumanB& operator = (const HumanB &t_ha);
 	~HumanB();

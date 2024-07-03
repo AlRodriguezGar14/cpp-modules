@@ -13,8 +13,8 @@ Weapon::~Weapon() {
 }
 
 
-std::string Weapon::getType() {
-	return this->m_type;
+const std::string& Weapon::getType() const {
+	return m_type;
 }
 
 void    Weapon::setType(std::string t_type) {

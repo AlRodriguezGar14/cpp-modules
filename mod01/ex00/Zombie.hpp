@@ -6,7 +6,7 @@
 
 class Zombie {
 public:
-	Zombie();
+	// Zombie();
 	Zombie(const Zombie &t_z);
 	Zombie(std::string t_name);
 	Zombie& operator = (const Zombie &t_z);

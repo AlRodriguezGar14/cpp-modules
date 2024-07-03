@@ -6,6 +6,8 @@ int main() {
 
 	{
 		Weapon club("crude spike club");
+		// This won't compile, HumanA always is armed
+		// HumanA bubu("Bubu");
 		HumanA bubu("Bubu", club);
 
 		bubu.attack();
@@ -23,7 +25,10 @@ int main() {
 	}
 	{
 		Weapon club("original club");
-		HumanB foo("Foo", &club);
+		// Won't compile, HumanB doesn't take a weapon in its constructor
+		// HumanB foo("Foo", &club);
+		HumanB foo("Foo");
+		foo.setWeapon(&club);
 		foo.attack();
 	}
 	return 0;

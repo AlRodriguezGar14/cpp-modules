@@ -1,7 +1,6 @@
 #include "HumanB.hpp"
 
 HumanB::HumanB(std::string t_name) : m_name(t_name) { this->m_w = NULL; };
-HumanB::HumanB(std::string t_name, Weapon* t_w) : m_w(t_w), m_name(t_name) {};
 
 HumanB::HumanB(const HumanB &t_ha) : m_w(t_ha.m_w) {};
 

@@ -46,12 +46,9 @@ void    Harl::complain(int t_idx) {
 	void    (Harl::*complainLevel[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string labels[4] = { "[ DEBUG ]", "[ INFO ]", "[ WARNING ]", "[ ERROR ]" };
 
-	for (int i = t_idx; i != 4; i++)
-	{
-		std::cout << labels[i] << std::endl;
-		(this->*(complainLevel[i]))();
-		std::cout << std::endl;
-	}
+	std::cout << labels[t_idx] << std::endl;
+	(this->*(complainLevel[t_idx]))();
+	std::cout << std::endl;
 }
 
 ComplainLevel getLevel(const std::string& t_arg) {

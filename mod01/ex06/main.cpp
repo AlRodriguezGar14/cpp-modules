@@ -12,13 +12,13 @@ int main(int argc, char **argv) {
 	switch (level) {
 		case DEBUG:
 			h.complain(DEBUG);
-			break;
+			/*fall through*/
 		case INFO:
 			h.complain(INFO);
-			break;
+			/*fall through*/
 		case WARNING:
 			h.complain(WARNING);
-			break;
+			/*fall through*/
 		case ERROR:
 			h.complain(ERROR);
 			break;

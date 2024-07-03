@@ -45,13 +45,15 @@ void    Harl::complain(std::string t_level) {
 	void    (Harl::*complainLevel[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string labels[4] = { "[ DEBUG ]", "[ INFO ]", "[ WARNING ]", "[ ERROR ]" };
 	int i = getIndex(toLower(t_level));
-	if (i != -1)
-	{
-		std::cout << labels[i] << std::endl;
-		(this->*(complainLevel[i]))();
+	switch(i) {
+		case -1:
+			std::cout << "[ INVALID ]\nInvalid complain level" << std::endl;
+			break;
+		default:
+			std::cout << labels[i] << std::endl;
+			(this->*(complainLevel[i]))();
+			break;
 	}
-	else
-		std::cout << "Invalid complain t_level" << std::endl;
 }
 
 Harl::Harl() {};
