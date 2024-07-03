@@ -9,8 +9,8 @@ Fixed::Fixed() {
 // is the same af shifting to the left fractional-bits-times (next function)
 Fixed::Fixed(const int t_input) {
 	std::cout << "Int constructor called" << std::endl;
-	if (t_input >= MAX_INT || t_input <= MIN_INT) {
-		std::cout << "Input is out of range, fixedPointValue set to 0" << std::endl;
+	if (t_input >= MAX_INT) {
+		std::cout << "Input is out of range, as it requires more bits than the available ones. fixedPointValue set to 0" << std::endl;
 		m_fixedPointValue = 0;
 		return ;
 	}
@@ -19,8 +19,8 @@ Fixed::Fixed(const int t_input) {
 
 Fixed::Fixed(const float t_input) {
 	std::cout << "Float constructor called" << std::endl;
-	if (t_input >= MAX_INT || t_input <= MIN_INT) {
-		std::cout << "Input is out of range, fixedPointValue set to 0" << std::endl;
+	if (t_input >= MAX_INT) {
+		std::cout << "Input is out of range, as it requires more bits than the available ones. fixedPointValue set to 0" << std::endl;
 		m_fixedPointValue = 0;
 		return ;
 	}

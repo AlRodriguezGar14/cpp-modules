@@ -2,6 +2,8 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
+
 #define FRACTIONAL_BITS 8
 #define MAX_INT pow(2, (32 - FRACTIONAL_BITS)) - 1
 #define MIN_INT pow(2, -(32 - FRACTIONAL_BITS))

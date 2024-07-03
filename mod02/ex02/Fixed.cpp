@@ -5,7 +5,7 @@ Fixed::Fixed() {
 }
 
 Fixed::Fixed(const int t_input) {
-	if (t_input >= MAX_INT || t_input <= MIN_INT) {
+	if (t_input >= MAX_INT) {
 		std::cout << "Input is out of range, fixedPointValue set to 0" << std::endl;
 		m_fixedPointValue = 0;
 		return ;
@@ -14,7 +14,7 @@ Fixed::Fixed(const int t_input) {
 }
 
 Fixed::Fixed(const float t_input) {
-	if (t_input >= MAX_INT || t_input <= MIN_INT) {
+	if (t_input >= MAX_INT) {
 		std::cout << "Input is out of range, fixedPointValue set to 0" << std::endl;
 		m_fixedPointValue = 0;
 		return ;
