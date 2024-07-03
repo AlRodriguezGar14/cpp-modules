@@ -41,7 +41,7 @@ std::string Utils::get_input(const std::string& prompt) {
 	{
 		std::cin.clear();
 		idx = 0;
-		std::cout << prompt << ": ";
+		std::cout << prompt << std::endl;
 		if (!std::getline(std::cin, input) || std::cin.eof())
 		{
 			clear_stdin(std::cin);
@@ -58,4 +58,3 @@ std::string Utils::get_input(const std::string& prompt) {
 	std::cin.clear();
 	return (input);
 }
-

@@ -35,9 +35,9 @@ int	main(int argc, char **argv)
 		return (1);
 	while (running)
 	{
-		prompt = Utils::get_input("\nChoose one of these commands:\n> ADD, SEARCH, EXIT <\n");
+		prompt = Utils::get_input("\nChoose one of these commands:\n> ADD, SEARCH, EXIT <");
 		while (!is_valid_prompt(prompt))
-			prompt = Utils::get_input("\nChoose one of these commands:\n> ADD, SEARCH, EXIT <\n");
+			prompt = Utils::get_input("\nChoose one of these commands:\n> ADD, SEARCH, EXIT <");
 		cmd = get_command(prompt);
 		switch (cmd) {
 			case EXIT:

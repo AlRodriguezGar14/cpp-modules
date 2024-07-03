@@ -5,7 +5,6 @@
 #include <cctype>
 #include <string>
 #include <ctime>
-
 #include "Utils.hpp"
 
 class Contact {
@@ -17,8 +16,9 @@ public:
 	Contact&		set_contact();
 	void			print_contact(size_t t_idx);
 	void			print_contact();
-	std::time_t     get_timestamp() const { return (m_creation_time); };
-	std::string	get_name() const { return (m_name); };
+	std::time_t     get_timestamp() const;
+	std::string		get_phone_number() const;
+	std::string		get_name() const;
 	~Contact();
 
 private:

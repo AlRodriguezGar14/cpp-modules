@@ -17,6 +17,7 @@ Contact & Contact::operator = (const Contact &t_contact) {
     m_nickname = t_contact.m_nickname;
     m_phone_number = t_contact.m_phone_number;
     m_darkest_secret = t_contact.m_darkest_secret;
+	m_creation_time = t_contact.m_creation_time;
 	return (*this);
 }
 
@@ -48,7 +49,6 @@ Contact&	Contact::set_contact() {
         m_phone_number = Utils::get_input("PHONE NUMBER");
     m_darkest_secret = Utils::get_input("DARKEST SECRET");
     m_creation_time = std::time(0);
-	std::cout << "Contact added successfully" << std::endl;
 	return (*this);
 }
 
@@ -61,3 +61,9 @@ void Contact::print_contact() {
 	std::cout << std::endl;
 }
 
+
+std::time_t Contact::get_timestamp() const { return (m_creation_time); };
+
+std::string	Contact::get_name() const { return (m_name); };
+
+std::string Contact::get_phone_number() const { return (m_phone_number); };
