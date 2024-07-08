@@ -39,16 +39,16 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& t_ClapTrap) {
 void ClapTrap::attack(const std::string &target) {
 	if (m_hitPoints <= 0 || m_energyPoints <= 0) {
 		std::cout
+				<< "ClapTrap "
 				<< m_name
 				<< " is out. Can't attack anymore"
 				<< std::endl;
-		return ;
 		return ;
 	}
 	--m_energyPoints;
 	std::cout
 		<< GREEN
-		<< "The ClapTrap "
+		<< "ClapTrap "
 		<< m_name
 		<< " attacks "
 		<< target
@@ -64,6 +64,7 @@ void ClapTrap::attack(const std::string &target) {
 void ClapTrap::takeDamage(unsigned int amount) {
 	if (m_hitPoints <= 0) {
 		std::cout
+			<< "ClapTrap "
 			<< m_name
 			<< " can't take more damage, it's dead"
 			<< std::endl;
@@ -72,6 +73,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 	m_hitPoints -= amount;
 	std::cout
 			<< RED
+			<< "ClapTrap "
 			<< m_name
 			<< " receives "
 			<< amount
@@ -86,6 +88,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 void ClapTrap::beRepaired(unsigned int amount) {
 	if (m_hitPoints <= 0 || m_energyPoints <= 0) {
 		std::cout
+			<< "ClapTrap "
 			<< m_name
 			<< " is out. Can't repair itself"
 			<< std::endl;
@@ -95,6 +98,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	--m_energyPoints;
 	std::cout
 		<< BLUE
+		<< "ClapTrap "
 		<< m_name
 		<< " repaired itself "
 		<< amount

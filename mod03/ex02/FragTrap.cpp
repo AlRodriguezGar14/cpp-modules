@@ -10,8 +10,8 @@ FragTrap::FragTrap(std::string t_name): ClapTrap(t_name) {
 			  << m_attackDamage
 			  << std::endl;
 	m_hitPoints = 100;
-	m_energyPoints = 50;
-	m_attackDamage = 20;
+	m_energyPoints = 100;
+	m_attackDamage = 30;
 	std::cout
 			<< "FragTrap named "
 			<< m_name
