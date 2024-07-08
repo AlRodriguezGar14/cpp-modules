@@ -5,7 +5,7 @@ Dog::Dog() {
 	std::cout << "Dog constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &t_Dog) {
+Dog::Dog(const Dog &t_Dog) : Animal() {
 	m_type = t_Dog.m_type;
 }
 
