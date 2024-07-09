@@ -2,8 +2,12 @@
 
 Brain::Brain() {
 	std::cout << "Brain constructor called" << std::endl;
+	std::stringstream ss;
 	for (int i = 0; i < 100; i++) {
-		m_ideas[i] = "Idea " + std::to_string(i);
+		ss.str("");
+		ss.clear();
+		ss << i;
+		m_ideas[i] = "Idea " + ss.str();
 	}
 	std::cout << "Brain created with 100 ideas" << std::endl;
 }

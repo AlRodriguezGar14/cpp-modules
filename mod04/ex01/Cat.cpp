@@ -6,7 +6,7 @@ Cat::Cat(){
 	std::cout << "Cat constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &t_Cat) {
+Cat::Cat(const Cat &t_Cat) : Animal() {
 	delete m_brain;
 	m_type = t_Cat.m_type;
 	m_brain = new Brain(*t_Cat.m_brain);
