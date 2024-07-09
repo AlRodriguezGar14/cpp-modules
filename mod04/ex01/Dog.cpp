@@ -6,21 +6,24 @@ Dog::Dog() {
 	std::cout << "Dog constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &t_Dog) : Animal() {
-	delete m_brain;
+Dog::Dog(const Dog &t_Dog) : Animal(t_Dog) {
+	if (m_brain != NULL)
+		delete m_brain;
 	m_type = t_Dog.m_type;
 	m_brain = new Brain(*t_Dog.m_brain);
 }
 
 Dog::~Dog() {
 	std::cout << "Dog destructor called" << std::endl;
-	delete m_brain;
+	if (m_brain != NULL)
+		delete m_brain;
 	std::cout << "Brain deleted before destructing the dog" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& t_Dog) {
 	if (this != &t_Dog) {
-		delete m_brain;
+		if (m_brain != NULL)
+			delete m_brain;
 		m_brain = new Brain(*t_Dog.m_brain);
 		m_type = t_Dog.m_type;
 	}

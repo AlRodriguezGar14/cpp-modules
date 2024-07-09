@@ -28,6 +28,14 @@ int main() {
 	animals[9]->makeSound();
 	std::cout << animals[9]->getBrainIdea(42) << std::endl;
 	std::cout << animals[9]->getType() << std::endl;
+	std::cout << MAGENTA << std::endl;
+	std::cout << "Create an Animal outside of the list" << std::endl;
+	Cat roninCat;
+	roninCat.makeSound();
+	std::cout << "The idea 10 of the created cat is: " << roninCat.getBrainIdea(10) << std::endl;
+	std::cout << "Copy the Cat from the list to the Animal outside of the list" << std::endl;
+	roninCat = *dynamic_cast<Cat*>(animals[0]);
+	std::cout << "The idea 10 of the created cat is: " << roninCat.getBrainIdea(10) << std::endl;
 	std::cout << DEFAULT << std::endl;
 	for (int i = 0; i < 10; ++i) {
 		std::cout << MAGENTA << i << DEFAULT << std::endl;

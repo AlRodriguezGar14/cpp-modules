@@ -6,21 +6,28 @@ Cat::Cat(){
 	std::cout << "Cat constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &t_Cat) : Animal() {
-	delete m_brain;
+Cat::Cat(const Cat &t_Cat) : Animal(t_Cat) {
+	if (m_brain != NULL) {
+		std::cout << "Deleting the original brain..." << std::endl;
+		delete m_brain;
+	}
 	m_type = t_Cat.m_type;
 	m_brain = new Brain(*t_Cat.m_brain);
 }
 
 Cat::~Cat() {
 	std::cout << "Cat destructor called" << std::endl;
-	delete m_brain;
+	if (m_brain != NULL)
+		delete m_brain;
 	std::cout << "Brain deleted before destructing the cat" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& t_Cat) {
 	if (this != &t_Cat) {
-		delete m_brain;
+		if (m_brain != NULL) {
+			std::cout << "Deleting the original brain..." << std::endl;
+			delete m_brain;
+		}
 		m_type = t_Cat.m_type;
 		m_brain = new Brain(*t_Cat.m_brain);
 	}

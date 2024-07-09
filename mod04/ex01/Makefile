@@ -1,4 +1,4 @@
-CXX = g++ -g3 -O2 -fsanitize=address
+CXX = g++ -g3 -O2
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I ./
 

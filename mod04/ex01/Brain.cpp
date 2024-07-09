@@ -15,6 +15,7 @@ Brain::Brain() {
 Brain::Brain(const Brain& t_Brain) {
 	for (int i = 0; i < 100; i++)
 		m_ideas[i] = t_Brain.m_ideas[i];
+	std::cout << "Copied one brain to another..." << std::endl;
 }
 
 Brain::~Brain() {
