@@ -9,6 +9,9 @@ class Character : public ICharacter {
 private:
 	std::string m_name;
 	AMateria* m_inventory[4];
+	AMateria **m_floor;
+	int     m_floorCount;
+	void    moveFloor();
 
 public:
 	Character(std::string t_name);
