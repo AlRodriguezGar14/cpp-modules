@@ -19,8 +19,10 @@ Character& Character::operator = (const Character& t_character) {
     m_name = t_character.m_name;
     m_unequipedIndex = t_character.m_unequipedIndex;
     for (int i = 0; i < 4; i++) {
-        if (m_inventory[i] != NULL)
-            delete m_inventory[i];
+        if (m_inventory[i] != NULL) {
+	        delete m_inventory[i];
+			m_inventory[i] = NULL;
+		}
         m_inventory[i] = t_character.m_inventory[i]->clone();
     }
     if (m_unequiped != NULL)
@@ -33,6 +35,13 @@ Character& Character::operator = (const Character& t_character) {
 
 Character::~Character() {
 	std::cout << "Character destructor called" << std::endl;
+
+	for (int i = 0; i < 4; i++) {
+		if (m_inventory[i] != NULL) {
+			delete m_inventory[i];
+			m_inventory[i] = NULL;
+		}
+	}
 	if (m_unequipedIndex != 0)
 		delete[] m_unequiped;
 }
