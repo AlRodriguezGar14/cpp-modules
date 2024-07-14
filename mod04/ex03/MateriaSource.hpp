@@ -3,6 +3,7 @@
 
 #include "IMateriaSource.hpp"
 #include "AMateria.hpp"
+#include <cstring>
 
 class MateriaSource : public IMateriaSource {
 private:

@@ -1,6 +1,5 @@
 #include "Character.hpp"
 
-
 Character::Character(std::string t_name) : m_name(t_name), m_floorCount(0) {
 	std::cout << "Character constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
@@ -23,15 +22,15 @@ Character& Character::operator = (const Character& t_character) {
 	        delete m_inventory[i];
 			m_inventory[i] = NULL;
 		}
-		if (t_character.m_inventory[i])
-            m_inventory[i] = t_character.m_inventory[i]->clone();
     }
-	if (m_floor != NULL) {
-		for (int i = 0; i < m_floorCount; i++) {
+	std::memcpy(m_inventory, t_character.m_inventory, 4 * sizeof(AMateria*));
+	for (int i = 0; i < m_floorCount; i++) {
+		if (m_floor[i] != NULL) {
 			delete m_floor[i];
-			m_floor[i] = t_character.m_floor[i];
+			m_floor[i] = NULL;
 		}
 	}
+	std::memcpy(m_floor, t_character.m_floor, m_floorCount * sizeof(AMateria*));
     return *this;
 }
 
@@ -53,6 +52,15 @@ Character::~Character() {
 	delete [] m_floor;
 }
 
+void Character::moveFloor(AMateria* t_materia) {
+	AMateria** newFloor = new AMateria*[m_floorCount + 1];
+	std::memcpy(newFloor, m_floor, m_floorCount * sizeof(AMateria*));
+	delete[] m_floor;
+	m_floor = newFloor;
+	m_floor[m_floorCount] = t_materia;
+	m_floorCount++;
+}
+
 void Character::equip(AMateria* m) {
 	for (int i = 0; i <= 4; ++i) {
 		if (m_inventory[i] == NULL) {
@@ -61,26 +69,14 @@ void Character::equip(AMateria* m) {
 		}
 	}
 	std::cout << "Inventory is full" << std::endl;
-	moveFloor();
-	m_floor[m_floorCount] = m;
-	m_floorCount++;
-}
-
-void Character::moveFloor() {
-	AMateria** newFloor = new AMateria*[m_floorCount + 1];
-	for (int i = 0; i < m_floorCount; i++)
-		newFloor[i] = m_floor[i];
-	delete[] m_floor;
-	m_floor = newFloor;
+	moveFloor(m);
 }
 
 void Character::unequip(int idx) {
 	if (idx < 0 || idx >= 4 || m_inventory[idx] == NULL)
 		return ;
-	moveFloor();
-	m_floor[m_floorCount] = m_inventory[idx];
+	moveFloor(m_inventory[idx]);
 	m_inventory[idx] = NULL;
-	m_floorCount++;
 	std::cout << "Unequipped " << m_floor[m_floorCount - 1]->getType() << std::endl;
 }
 

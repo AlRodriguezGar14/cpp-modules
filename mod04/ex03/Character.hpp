@@ -4,6 +4,7 @@
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 #include <string>
+#include <cstring>
 
 class Character : public ICharacter {
 private:
@@ -11,7 +12,7 @@ private:
 	AMateria* m_inventory[4];
 	AMateria **m_floor;
 	int     m_floorCount;
-	void    moveFloor();
+	void    moveFloor(AMateria* t_materia);
 
 public:
 	Character(std::string t_name);

@@ -21,9 +21,8 @@ MateriaSource& MateriaSource::operator = (const MateriaSource& t_materiaSource) 
 			delete m_inventory[i];
 			m_inventory[i] = NULL;
 		}
-		if (t_materiaSource.m_inventory[i] != NULL)
-			m_inventory[i] = t_materiaSource.m_inventory[i]->clone();
 	}
+	std::memcpy(m_inventory, t_materiaSource.m_inventory, 4 * sizeof(AMateria*));
 	return *this;
 }
 
