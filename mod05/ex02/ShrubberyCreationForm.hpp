@@ -2,6 +2,9 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class ShrubberyCreationForm : public AForm {
 private:
@@ -12,7 +15,7 @@ public:
     ShrubberyCreationForm& operator = (const ShrubberyCreationForm& t_form);
     ~ShrubberyCreationForm();
 
-    void execute(Bureaucrat const & t_executor);
+    void execute(Bureaucrat const & t_executor) const;
 };
 
 #endif

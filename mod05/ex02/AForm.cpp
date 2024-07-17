@@ -38,16 +38,15 @@ void AForm::beSigned(Bureaucrat& t_Bureaucrat) {
 
 bool AForm::canExecute(Bureaucrat const & t_Bureaucrat) const {
     if (t_Bureaucrat.getGrade() > m_execGrade) {
-        std::cout << "Bureaucrat " << t_Bureaucrat.getName() << " cannot execute AForm " << m_name << " because his grade is too low" << std::endl;
+        std::cerr << "Bureaucrat " << t_Bureaucrat.getName() << " cannot execute AForm " << m_name << " because his grade is too low" << std::endl;
         throw AForm::GradeTooLowException();
     }
     if (!m_isSigned) {
-        std::cout << "AForm " << m_name << " can't be executed; it's not signed" << std::endl;
+        std::cerr << "AForm " << m_name << " can't be executed; it's not signed" << std::endl;
         return false;
     }
     return true;
 }
-
 
 AForm::GradeTooHighException::GradeTooHighException() : std::out_of_range("AForm: Grade is too high") {}
 AForm::GradeTooLowException::GradeTooLowException() : std::out_of_range("AForm: Grade is too low") {}

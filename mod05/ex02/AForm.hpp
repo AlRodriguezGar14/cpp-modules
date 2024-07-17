@@ -32,7 +32,7 @@ public:
 	virtual int getSignGrade() const;
 	virtual int getExecGrade() const;
 	virtual void beSigned(Bureaucrat& t_Bureaucrat);
-	virtual void execute(Bureaucrat const & t_executor) = 0;
+	virtual void execute(Bureaucrat const & t_executor) const = 0;
 	virtual void setSign();
 
 	// Exceptions

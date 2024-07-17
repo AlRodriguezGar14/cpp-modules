@@ -26,6 +26,7 @@ public:
 	void incrementGradeBy(int t_increment);
 	void decrementGradeBy(int t_decrement);
 	void signForm(AForm& t_Form);
+	void executeForm(AForm const & t_Form);
 
 	// Exceptions
 	class GradeTooHighException : public std::out_of_range {

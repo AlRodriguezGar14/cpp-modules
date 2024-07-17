@@ -17,7 +17,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator = (const ShrubberyCreatio
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-void ShrubberyCreationForm::execute(Bureaucrat const & t_executor) {
+void ShrubberyCreationForm::execute(Bureaucrat const & t_executor) const {
     if (!canExecute(t_executor))
         return ;
     std::ofstream file;

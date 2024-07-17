@@ -42,7 +42,7 @@ void Bureaucrat::decrementGradeBy(int t_decrement) {
 
 void Bureaucrat::signForm(AForm& t_Form) {
 	if (t_Form.getIsSigned()) {
-		std::cout	<< m_name
+		std::cerr	<< m_name
 					<< " couldn't sign "
 					<< t_Form.getName()
 					<< " because it is already signed"
@@ -50,7 +50,7 @@ void Bureaucrat::signForm(AForm& t_Form) {
 		return ;
 	}
 	if (t_Form.getSignGrade() < m_grade) {
-		std::cout	<< m_name
+		std::cerr	<< m_name
 					<< " couldn't sign "
 					<< t_Form.getName()
 					<< " because his/hers grade is too low. Grade "
@@ -67,6 +67,21 @@ void Bureaucrat::signForm(AForm& t_Form) {
 				<< std::endl;
 }
 
+void Bureaucrat::executeForm(AForm const & t_Form) {
+	if (t_Form.getExecGrade() < m_grade) {
+		std::cerr	<< m_name
+					<< " couldn't execute "
+					<< t_Form.getName()
+					<< " because his/hers grade is too low. Grade "
+					<< m_grade
+					<< ", expected < "
+					<< t_Form.getExecGrade()
+					<< std::endl;
+		return ;
+	}
+	std::cout << m_name << " executed " << t_Form.getName() << std::endl;
+	t_Form.execute(*this);
+}
 
 Bureaucrat::GradeTooHighException::GradeTooHighException() : std::out_of_range("Bureaurat: Invalid grade, it must be > 1")  {}
 Bureaucrat::GradeTooLowException::GradeTooLowException() : std::out_of_range("Bureaucrat: Invalid grade, it must be < 150"){}
