@@ -5,8 +5,36 @@ ScalarConverter::ScalarConverter(ScalarConverter const &src) { *this = src; }
 ScalarConverter& ScalarConverter::operator=(ScalarConverter const &src) { (void)src; return *this; }
 ScalarConverter::~ScalarConverter() {}
 
+bool isChar(const std::string& t_input) {
+	if (t_input.length() == 1 && !isdigit(t_input[0])) {
+		return true;
+	}
+	try {
+		int nbr = std::stoi(t_input);
+		if (isprint(nbr)) {
+			return true;
+		}
+	} catch (std::exception& e) {
+	}
+	return false;
+}
+
+template<typename T>
+bool ft_isnan(T nbr) {
+	return nbr != nbr;
+}
+
+template<typename T>
+bool ft_isinf(T nbr) {
+	return nbr == std::numeric_limits<T>::infinity() || nbr == -std::numeric_limits<T>::infinity();
+}
+
 void printChar(const std::string& t_input) {
 	std::cout << "char: ";
+	if (isChar(t_input)) {
+		std::cout << "'" << t_input << "'" << std::endl;
+		return ;
+	}
 	try {
 		int nbr = std::stoi(t_input);
 		if (isprint(nbr)) {
@@ -22,6 +50,10 @@ void printChar(const std::string& t_input) {
 
 void printInt(const std::string& t_input) {
 	std::cout << "int: ";
+	if (t_input.length() == 1 && !isdigit(t_input[0])) {
+		std::cout << static_cast<int>(t_input[0]) << std::endl;
+		return ;
+	}
 	try {
 		std::cout << std::stoi(t_input) << std::endl;
 	} catch (std::exception& e) {
@@ -36,7 +68,7 @@ void printFloat(const std::string& t_input) {
 	try {
 		long double nbr = std::stold(t_input);
 
-		if (std::isnan(nbr) || std::isinf(nbr)) {
+		if (ft_isnan(nbr) || ft_isinf(nbr)) {
 			std::cout << "nanf" << std::endl;
 			return ;
 		}
@@ -54,9 +86,35 @@ void printFloat(const std::string& t_input) {
 	}
 }
 
+void printDouble(const std::string& t_input) {
+	std::cout << "double: ";
+
+	try {
+		long double nbr = std::stold(t_input);
+
+		if (ft_isnan(nbr) || ft_isinf(nbr)) {
+			std::cout << "nan" << std::endl;
+			return ;
+		}
+		if (nbr > std::numeric_limits<double>::max()) {
+			std::cout << "+inf" << std::endl;
+			return ;
+		}
+		if (nbr < std::numeric_limits<double>::lowest()) {
+			std::cout << "-inf" << std::endl;
+			return ;
+		}
+		std::cout << std::fixed << std::setprecision(1) << std::stod(t_input) << std::endl;
+	} catch (std::exception& e) {
+		std::cout << "impossible" << std::endl;
+	}
+
+}
+
 void ScalarConverter::convert(const std::string& t_input) {
 
 	printChar(t_input);
 	printInt(t_input);
 	printFloat(t_input);
+	printDouble(t_input);
 }
