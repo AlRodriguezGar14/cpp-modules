@@ -5,7 +5,7 @@ ScalarConverter::ScalarConverter(ScalarConverter const &src) { *this = src; }
 ScalarConverter& ScalarConverter::operator=(ScalarConverter const &src) { (void)src; return *this; }
 ScalarConverter::~ScalarConverter() {}
 
-bool isChar(const std::string& t_input) {
+bool ScalarConverter::isChar(const std::string& t_input) {
 	if (t_input.length() == 1 && !isdigit(t_input[0])) {
 		return true;
 	}
@@ -20,19 +20,19 @@ bool isChar(const std::string& t_input) {
 }
 
 template<typename T>
-bool ft_isnan(T nbr) {
+bool ScalarConverter::ft_isnan(T nbr) {
 	return nbr != nbr;
 }
 
 template<typename T>
-bool ft_isinf(T nbr) {
+bool ScalarConverter::ft_isinf(T nbr) {
 	return nbr == std::numeric_limits<T>::infinity() || nbr == -std::numeric_limits<T>::infinity();
 }
 
-void printChar(const std::string& t_input) {
+void ScalarConverter::printChar(const std::string& t_input) {
 	std::cout << "char: ";
 	if (isChar(t_input)) {
-		std::cout << "'" << t_input << "'" << std::endl;
+		std::cout << "'" << static_cast<char>(std::stoi(t_input)) << "'" << std::endl;
 		return ;
 	}
 	try {
@@ -48,7 +48,7 @@ void printChar(const std::string& t_input) {
 	}
 }
 
-void printInt(const std::string& t_input) {
+void ScalarConverter::printInt(const std::string& t_input) {
 	std::cout << "int: ";
 	if (t_input.length() == 1 && !isdigit(t_input[0])) {
 		std::cout << static_cast<int>(t_input[0]) << std::endl;
@@ -62,7 +62,7 @@ void printInt(const std::string& t_input) {
 }
 
 
-void printFloat(const std::string& t_input) {
+void ScalarConverter::printFloat(const std::string& t_input) {
 	std::cout << "float: ";
 
 	try {
@@ -86,7 +86,7 @@ void printFloat(const std::string& t_input) {
 	}
 }
 
-void printDouble(const std::string& t_input) {
+void ScalarConverter::printDouble(const std::string& t_input) {
 	std::cout << "double: ";
 
 	try {

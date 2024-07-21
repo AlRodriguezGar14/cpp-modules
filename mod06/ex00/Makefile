@@ -7,7 +7,7 @@ SRCS =	ScalarConverter.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-TARGET = ex00
+TARGET = convert
 
 all: $(TARGET)
 
@@ -30,4 +30,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-	
+
