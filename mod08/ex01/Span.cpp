@@ -1,6 +1,6 @@
 #include "Span.hpp"
 
-Span::Span(unsigned int t_size) : m_size(t_size) {};
+Span::Span(unsigned int t_size) : m_size(t_size) { m_data.reserve(m_size);};
 Span::Span(const Span& t_span) : m_size(t_span.m_size), m_data(t_span.m_data) {};
 Span& Span::operator=(const Span& t_span) {
 	m_size = t_span.m_size;
@@ -22,7 +22,7 @@ int Span::longestSpan() {
 
 	std::vector<int> sorted = m_data;
 	std::sort(sorted.begin(), sorted.end());
-	return (sorted[sorted.size() - 1] - sorted[0]);
+	return (sorted.back() - sorted.front());
 }
 
 int Span::shortestSpan() {
@@ -33,8 +33,8 @@ int Span::shortestSpan() {
 	std::vector<int> sorted = m_data;
 	std::sort(sorted.begin(), sorted.end());
 	for (size_t i = 0; i < sorted.size() - 1; ++i) {
-		if (sorted[i + 1] - sorted[i] < threshold) {
-			threshold = sorted[i + 1] - sorted[i];
+		if (sorted.at(i + 1) - sorted.at(i) < threshold) {
+			threshold = sorted.at(i + 1) - sorted.at(i);
 		}
 	}
 	return threshold;

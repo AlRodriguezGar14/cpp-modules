@@ -4,12 +4,9 @@
 #include <iostream>
 #include <exception>
 
-// Won't work with strings due to the operator ==
-// <template < template <typename> <typename T> <- is part of C++11 and over
-// int easyfind (T<int> &container...)
 template<typename T>
 int easyfind(T &container, int find) {
-	for (typename T::iterator it = container.begin(); it != container.end(); ++it) {
+	for (typename T::iterator it = std::begin(container); it != std::end(container); ++it) {
 		if (*it == find)
 			return *it;
 	}
