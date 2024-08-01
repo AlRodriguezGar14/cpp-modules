@@ -1,19 +1,19 @@
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource() {
-	std::cout << "MateriaSource constructor called" << std::endl;
+	// std::cout << "MateriaSource constructor called" << std::endl;
 	for (int i = 0; i < 4; i++) {
 		m_inventory[i] = NULL;
 	}
 }
 
 MateriaSource::MateriaSource(const MateriaSource& t_materiaSource) {
-	std::cout << "MateriaSource copy constructor called" << std::endl;
+	// std::cout << "MateriaSource copy constructor called" << std::endl;
 	*this = t_materiaSource;
 }
 
 MateriaSource& MateriaSource::operator = (const MateriaSource& t_materiaSource) {
-	std::cout << "MateriaSource assignation operator called" << std::endl;
+	// std::cout << "MateriaSource assignation operator called" << std::endl;
 	if (this == &t_materiaSource)
 		return *this;
 	for (int i = 0; i < 4; i++) {
@@ -27,7 +27,7 @@ MateriaSource& MateriaSource::operator = (const MateriaSource& t_materiaSource) 
 }
 
 MateriaSource::~MateriaSource() {
-	std::cout << "MateriaSource destructor called" << std::endl;
+	// std::cout << "MateriaSource destructor called" << std::endl;
 	for (int i = 0; i < 4; i++) {
 		if (m_inventory[i] != NULL) {
 			delete m_inventory[i];

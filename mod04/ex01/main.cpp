@@ -6,15 +6,16 @@
 #define BLUE "\033[34m"
 #define MAGENTA "\033[35m"
 #define DEFAULT "\033[0m"
+#define ANIMALS_NUM 10
 
 int main() {
 
 	std::cout << GREEN << std::endl;
-	Animal *animals[10];
-	for (int i = 0; i < 5; ++i) {
+	Animal *animals[ANIMALS_NUM];
+	for (int i = 0; i < ANIMALS_NUM / 2; ++i) {
 		std::cout << MAGENTA << i << GREEN << std::endl;
 		animals[i] = new Cat();
-		std::cout << MAGENTA << i + 10 << GREEN << std::endl;
+		std::cout << MAGENTA << i + ANIMALS_NUM / 2 << GREEN << std::endl;
 		animals[i + 5] = new Dog();
 	}
 	std::cout << DEFAULT << std::endl;
@@ -29,6 +30,7 @@ int main() {
 	std::cout << animals[9]->getBrainIdea(42) << std::endl;
 	std::cout << animals[9]->getType() << std::endl;
 	std::cout << MAGENTA << std::endl;
+
 	std::cout << "Create an Animal outside of the list" << std::endl;
 	Cat roninCat;
 	roninCat.makeSound();

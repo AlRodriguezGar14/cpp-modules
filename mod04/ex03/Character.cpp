@@ -1,14 +1,14 @@
 #include "Character.hpp"
 
 Character::Character(std::string t_name) : m_name(t_name), m_floorCount(0) {
-	std::cout << "Character constructor called" << std::endl;
+	// std::cout << "Character constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		m_inventory[i] = NULL;
 	m_floor = new AMateria*[m_floorCount + 1];
 }
 
 Character::Character(const Character& t_character) {
-	std::cout << "Character copy constructor called" << std::endl;
+	// std::cout << "Character copy constructor called" << std::endl;
 	*this = t_character;
 }
 
@@ -35,7 +35,7 @@ Character& Character::operator = (const Character& t_character) {
 }
 
 Character::~Character() {
-	std::cout << "Character destructor called" << std::endl;
+	// std::cout << "Character destructor called" << std::endl;
 
 	for (int i = 0; i < 4; i++) {
 		if (m_inventory[i] != NULL) {
