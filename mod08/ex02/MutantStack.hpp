@@ -5,22 +5,25 @@
 #include <stack>
 
 template <typename T>
-class MutantStack {
-	private:
-		std::stack<T> m_stack;
+class MutantStack : public std::stack<T> {
 	public:
 		MutantStack() {};	
-		MutantStack(MutantStack const& t_MutantStack) { *this = t_MutantStack; };
-		MutantStack& operator=(MutantStack const& t_MutantStack) { m_stack = t_MutantStack.m_stack; return *this; };
+		MutantStack(MutantStack const& t_mutantStack) : std::stack<T>(t_mutantStack) {};
+		MutantStack& operator=(MutantStack const& t_mutantStack) { 
+			if (this != &t_mutantStack)
+				this->m_stack = t_mutantStack.m_stack;
+			return *this;
+		 };
 		~MutantStack() {};
 
-		void empty() { m_stack.empty(); };
-		void pop(T t_value) { m_stack.pop(t_value); };
-		void push(T t_value) { m_stack.push(t_value); };
-		size_t size() { return m_stack.size(); };
-		T& top() { return m_stack.top(); };
 
+		typedef typename std::stack<T>::container_type::iterator iterator;
+		iterator begin() { return std::stack<T>::c.begin(); };
+		iterator end() { return std::stack<T>::c.end(); };
 
+		typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+		const_iterator begin() const { return std::stack<T>::c.begin(); };
+		const_iterator end() const { return std::stack<T>::c.end(); };
 
 };
 
