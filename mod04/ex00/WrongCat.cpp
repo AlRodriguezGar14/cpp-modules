@@ -15,6 +15,6 @@ WrongCat::~WrongCat() {
 
 WrongCat& WrongCat::operator=(const WrongCat& t_WrongCat) {
 	if (this != &t_WrongCat)
-		*this = t_WrongCat;
+		m_type = t_WrongCat.m_type;
 	return *this;
 }
