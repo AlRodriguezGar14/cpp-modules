@@ -1,16 +1,25 @@
 #include "ScalarConverter.hpp"
 
+#include <cstdlib>
+#include <limits>
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <cmath>
+// TOREFACTORRR
+
 ScalarConverter::ScalarConverter() {}
 ScalarConverter::ScalarConverter(ScalarConverter const &src) { *this = src; }
 ScalarConverter& ScalarConverter::operator=(ScalarConverter const &src) { (void)src; return *this; }
 ScalarConverter::~ScalarConverter() {}
 
-bool ScalarConverter::isChar(const std::string& t_input) {
-	if (t_input.length() == 1 && !isdigit(t_input[0])) {
+template<typename T>
+bool ScalarConverter::isChar(const T& t_input) {
+	if (t_input.length() == 1 && !isdigit(t_input)) {
 		return true;
 	}
 	try {
-		int nbr = std::stoi(t_input);
+		int nbr = static_cast<int>(t_input);
 		if (isprint(nbr)) {
 			return true;
 		}
@@ -29,14 +38,11 @@ bool ScalarConverter::ft_isinf(T nbr) {
 	return nbr == std::numeric_limits<T>::infinity() || nbr == -std::numeric_limits<T>::infinity();
 }
 
-void ScalarConverter::printChar(const std::string& t_input) {
+template<typename T>
+void ScalarConverter::printChar(const T& t_input) {
 	std::cout << "char: ";
-	if (isChar(t_input)) {
-		std::cout << "'" << static_cast<char>(std::stoi(t_input)) << "'" << std::endl;
-		return ;
-	}
 	try {
-		int nbr = std::stoi(t_input);
+		int nbr = static_cast<int>(t_input);
 		if (isprint(nbr)) {
 			std::cout << "'" << static_cast<char>(nbr) << "'" << std::endl;
 			return ;
@@ -48,73 +54,129 @@ void ScalarConverter::printChar(const std::string& t_input) {
 	}
 }
 
-void ScalarConverter::printInt(const std::string& t_input) {
+template<typename T>
+void ScalarConverter::printInt(const T& t_input) {
 	std::cout << "int: ";
-	if (t_input.length() == 1 && !isdigit(t_input[0])) {
-		std::cout << static_cast<int>(t_input[0]) << std::endl;
-		return ;
-	}
 	try {
-		std::cout << std::stoi(t_input) << std::endl;
+		std::cout << static_cast<int>(t_input) << std::endl;
 	} catch (std::exception& e) {
 		std::cout << "impossible" << std::endl;
 	}
 }
 
 
-void ScalarConverter::printFloat(const std::string& t_input) {
+template<typename T>
+void ScalarConverter::printFloat(const T& t_input) {
 	std::cout << "float: ";
 
 	try {
-		long double nbr = std::stold(t_input);
-
-		if (ft_isnan(nbr) || ft_isinf(nbr)) {
+		if (ft_isnan(t_input) || ft_isinf(t_input)) {
 			std::cout << "nanf" << std::endl;
 			return ;
 		}
-		if (nbr > std::numeric_limits<float>::max()) {
+		if (t_input > std::numeric_limits<float>::max()) {
 			std::cout << "+inff" << std::endl;
 			return ;
 		}
-		if (nbr < std::numeric_limits<float>::lowest()) {
+		if (t_input < -std::numeric_limits<float>::max()) {
 			std::cout << "-inff" << std::endl;
 			return ;
 		}
-		std::cout << std::fixed << std::setprecision(1) << std::stof(t_input) << "f" << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << static_cast<float>((t_input)) << "f" << std::endl;
 	} catch (std::exception& e) {
 		std::cout << "impossible" << std::endl;
 	}
 }
 
-void ScalarConverter::printDouble(const std::string& t_input) {
+template<typename T>
+void ScalarConverter::printDouble(const T& t_input) {
 	std::cout << "double: ";
 
 	try {
-		long double nbr = std::stold(t_input);
-
-		if (ft_isnan(nbr) || ft_isinf(nbr)) {
+		if (ft_isnan(t_input) || ft_isinf(t_input)) {
 			std::cout << "nan" << std::endl;
 			return ;
 		}
-		if (nbr > std::numeric_limits<double>::max()) {
+		if (t_input > std::numeric_limits<double>::max()) {
 			std::cout << "+inf" << std::endl;
 			return ;
 		}
-		if (nbr < std::numeric_limits<double>::lowest()) {
+		if (t_input < -std::numeric_limits<double>::max()) {
 			std::cout << "-inf" << std::endl;
 			return ;
 		}
-		std::cout << std::fixed << std::setprecision(1) << std::stod(t_input) << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << static_cast<double>(t_input) << std::endl;
 	} catch (std::exception& e) {
 		std::cout << "impossible" << std::endl;
 	}
 
 }
 
+
 void ScalarConverter::convert(const std::string& t_input) {
 
-	printChar(t_input);
-	printInt(t_input);
-	printFloat(t_input);
-	printDouble(t_input);
+	ConvertedType converted_type;
+
+	int converted_type_idx = 0;
+
+	if (t_input.find('.') != std::string::npos) {
+		if (t_input.find('f') != std::string::npos) {
+			try {
+				converted_type.setFloat(static_cast<float>(std::atof(t_input.c_str())));
+				converted_type_idx = 3;
+			} catch (std::exception& e) {
+			}
+		} else {
+			try {
+				converted_type.setDouble(std::atof(t_input.c_str()));
+				converted_type_idx = 4;
+			} catch (std::exception& e) {
+			}
+		}
+	}
+	else {
+		if (t_input.length() == 1 && !isdigit(t_input[0])) {
+			converted_type.setChar(t_input[0]);
+			converted_type_idx = 1;
+		} else {
+			try {
+				converted_type.setInt(std::atoi(t_input.c_str()));
+				converted_type_idx = 2;
+			} catch (std::exception& e) {
+			}
+		}
+	}
+	if (converted_type_idx == 0) {
+		std::cout << "impossible" << std::endl;
+		return ;
+	}
+
+	if (converted_type_idx == 1) {
+
+		printChar(converted_type.getChar());
+		printInt(converted_type.getChar());
+		printFloat(converted_type.getChar());
+		printDouble(converted_type.getChar());
+	}
+	if (converted_type_idx == 2) {
+
+		printChar(converted_type.getInt());
+		printInt(converted_type.getInt());
+		printFloat(converted_type.getInt());
+		printDouble(converted_type.getInt());
+	}
+	if (converted_type_idx == 3) {
+
+		printChar(converted_type.getFloat());
+		printInt(converted_type.getFloat());
+		printFloat(converted_type.getFloat());
+		printDouble(converted_type.getFloat());
+	}
+	if (converted_type_idx == 4) {
+
+		printChar(converted_type.getDouble());
+		printInt(converted_type.getDouble());
+		printFloat(converted_type.getDouble());
+		printDouble(converted_type.getDouble());
+	}
 }
