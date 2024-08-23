@@ -3,6 +3,7 @@ CXX = g++ -g3 -O2
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I ./
 
 SRCS =	ScalarConverter.cpp \
+		ConvertedType.cpp \
 		main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
