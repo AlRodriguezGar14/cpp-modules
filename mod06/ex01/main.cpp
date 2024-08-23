@@ -18,7 +18,6 @@ int main() {
 				<< std::endl;
 	if (data == dataCopy)
 		std::cout << "Data and dataCopy are equal" << std::endl;
-	delete dataCopy;
-//	delete data;
+	delete data;
 	return 0;
 }
